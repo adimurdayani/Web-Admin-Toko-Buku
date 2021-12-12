@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "HookyQR.beautify",
+    "[blade]": {
+        "editor.defaultFormatter": "amirmarmul.laravel-blade-vscode"
+    }
+}
