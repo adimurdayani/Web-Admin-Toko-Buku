@@ -79,21 +79,21 @@
                                 <table class="table table-bordered table-centered mb-0">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Nama Produk</th>
-                                            <th>Produk</th>
-                                            <th>Jumlah Item</th>
-                                            <th>Harga</th>
-                                            <th>Total</th>
+                                            <th class="text-center">Nama Produk</th>
+                                            <th class="text-center">Produk</th>
+                                            <th class="text-center">Jumlah Item</th>
+                                            <th class="text-center">Harga</th>
+                                            <th class="text-center">Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($detailtransaksi as $d)
                                         <tr>
                                             <th scope="row">{{ $d->produk->nama_produk }}</th>
-                                            <td><img src="{{ asset('assets/images/products/product-1.png') }}" alt="product-img" height="32"></td>
-                                            <td>{{ $d->total_item }}</td>
-                                            <td>Rp.{{ number_format($d->produk->harga) }}</td>
-                                            <td>Rp.{{ number_format($d->total_harga) }}</td>
+                                            <td class="text-center"><img src="{{ asset('storage/produk/'. $d->produk->image) }}" alt="product-img" height="32"></td>
+                                            <td class="text-center">{{ $d->total_item }}</td>
+                                            <td class="text-right">Rp.{{ number_format($d->produk->harga) }}</td>
+                                            <td class="text-right">Rp.{{ number_format($d->total_harga) }}</td>
                                         </tr>
                                         @endforeach
 
@@ -128,10 +128,9 @@
 
                             <ul class="list-unstyled mb-0">
                                 <li>
+                                    <p class="mb-1"><span class="font-weight-semibold mr-2">Bukti Transfer :</span><img src="{{ asset('storage/transfer/'. $transaksi_id->bukti_transfer) }}" alt="product-img" height="100px"></p>
                                     <p class="mb-2"><span class="font-weight-semibold mr-2">Payment Type:</span> {{ $transaksi_id->bank }}</p>
                                     <p class="mb-2"><span class="font-weight-semibold mr-2">Provider:</span> {{ $transaksi_id->bank }}</p>
-                                    <p class="mb-2"><span class="font-weight-semibold mr-2">Valid Date:</span> 02/2020</p>
-                                    <p class="mb-0"><span class="font-weight-semibold mr-2">CVV:</span> xxx</p>
                                 </li>
                             </ul>
 
@@ -148,7 +147,7 @@
                                 <i class="mdi mdi-truck-fast h2 text-muted"></i>
                                 <h5><b>{{ $transaksi_id->kurir }} {{ $transaksi_id->jasa_pengiriman }}</b></h5>
                                 <p class="mb-1"><span class="font-weight-semibold">Order ID :</span> #{{ $transaksi_id->kode_unik }}</p>
-                                <p class="mb-0"><span class="font-weight-semibold">Payment Mode :</span> {{ $transaksi_id->metode }}</p>
+                                <p class="mb-0"><span class="font-weight-semibold">Payment Mode :</span> {{ $transaksi_id->kode_payment }}</p>
                             </div>
                         </div>
                     </div>

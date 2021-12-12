@@ -108,7 +108,7 @@ class TransaksiController extends Controller
                 'status' => "BATAL"
             ]);
 
-            // $this->pushNotif("Transaksi dibatalkan", "Transaksi produk ".$transaksi->details[0]->produk->name.", berhasil dibatalkan",  $transaksi->user->fcm);
+            $this->pushNotif("Transaksi dibatalkan", "Transaksi produk " . $transaksi->details[0]->produk->nama_produk . ", berhasil dibatalkan",  $transaksi->costumer->fcm);
 
             return response()->json([
                 'success' => 1,
@@ -145,7 +145,7 @@ class TransaksiController extends Controller
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_HTTPHEADER => array(
                 "Content-type: application/json",
-                "Authorization: key=AAAAsAziE3k:APA91bHNQBXv6ldDQGr8a5k7RJWU5sMlJmFBkttTpOK6dmETvEbVeFXWEhKlhTgqgLs7KdiXOt-2GbfLHvkUldZihu009ZKZx0_O7cadJuL2WusR9Y7VAE5mddc5vj0e34Sh6eRm7hPW"
+                "Authorization: key=AAAApfAhH-w:APA91bF9wqof5ZPlRM-XSMNEm5R9kXYmFfGzvwX5vCEX66TR_QU4FxRPqc6QNb1BghoiTItDCbbIn3zf740y7sEZzx8FzrZbZqHvp0wCRAkTGXN_ILE3UMEmOs_sqb5n_y5JnuyhXBwi"
             ),
         ));
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($payload));

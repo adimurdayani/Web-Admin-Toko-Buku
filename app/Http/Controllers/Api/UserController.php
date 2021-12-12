@@ -47,6 +47,9 @@ class UserController extends Controller
             return $this->error('Login gagal');
         }
 
+        $costumer->update([
+            'fcm' => $request->fcm
+        ]);
         return response()->json([
             'success' => 1,
             'data' => $costumer,
@@ -71,6 +74,7 @@ class UserController extends Controller
         $name = $request->input('nama');
         $email = $request->input('email');
         $phone = $request->input('phone');
+        $fcm = $request->input('fcm');
         $password = Hash::make($request->input('password'));
 
         $costumer = Costumer::create([
@@ -78,7 +82,8 @@ class UserController extends Controller
             'email' => $email,
             'phone' => $phone,
             'password' => $password,
-            'user_id' => 'USER'
+            'user_id' => 'USER',
+            'fcm' => $fcm
         ]);
 
         return response()->json([
